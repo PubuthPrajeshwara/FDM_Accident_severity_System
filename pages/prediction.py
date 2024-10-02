@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from streamlit_lottie import st_lottie
 import path
 
-path_to_model = './xgb_model.joblib'
+path_to_model = 'xgb_model.joblib'
 
 with open(path_to_model, 'rb') as file:
     model = joblib.load(file)
