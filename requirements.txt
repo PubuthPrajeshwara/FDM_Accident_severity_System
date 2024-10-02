@@ -1,0 +1,10 @@
+streamlit
+streamlit-extras
+streamlit-lottie
+requests
+joblib
+numpy
+pandas
+requests
+scikit-learn
+streamlit-lottie
