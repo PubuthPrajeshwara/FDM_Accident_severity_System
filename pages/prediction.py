@@ -248,7 +248,7 @@ with st.form("prediction_form", clear_on_submit=False):
             # Environmental Factors
             st.subheader("Environmental Factors")
             area_accident_occurred = st.selectbox("Area of Accident Occurred", ['', 'Residential areas', 'Office areas', 'Recreational areas', 'Industrial areas', 'Other', 'Unknown'])
-            lanes_or_medians = st.selectbox("Lanes or Medians", ['', 'Undivided Two way', 'Double carriageway (median)', 'One way', 'Two-way (divided with solid lines road marking)', 'Two-way (divided with broken lines road marking)', 'Unknown'])
+            lanes_or_medians = st.selectbox("Lanes or Medians", ['', 'Undivided Two way', 'Double carriageway (median)', 'One way', 'Two-way (divided with solid lines road marking)', 'Two-way (divided with broken lines road marking)', 'Unknown', 'other'])
             road_alignment = st.selectbox("Road Alignment", ['', 'Tangent road with flat terrain', 'Tangent road with mild grade and flat terrain', 'Escarpments', 'Tangent road with rolling terrain', 'Gentle horizontal curve', 'Tangent road with mountainous terrain', 'Steep grade downward with mountainous terrain', 'Sharp reverse curve', 'Steep grade upward with mountainous terrain'])
             types_of_junction = st.selectbox("Types of Junction", ['', 'No junction', 'Y Shape', 'Crossing', 'O Shape', 'Other', 'Unknown', 'T Shape', 'X Shape'])
             road_surface_type = st.selectbox("Road Surface Type", ['', 'Asphalt roads', 'Earth roads', 'Gravel roads', 'Other'])
