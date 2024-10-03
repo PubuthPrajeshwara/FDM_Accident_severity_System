@@ -219,51 +219,51 @@ with st.form("prediction_form", clear_on_submit=False):
         with col1:
             # Driver Information
             st.subheader("Driver Information")
-            age_band_of_driver = st.selectbox("Age Band of Driver", ['18-30', '31-50', 'Under 18', 'Over 51', 'Unknown'])
-            sex_of_driver = st.selectbox("Sex of Driver", ['Male', 'Female', 'Unknown'])
-            educational_level = st.selectbox("Educational Level", ['Above high school', 'Junior high school', 'Elementary school', 'High school', 'Unknown', 'Illiterate', 'Writing & reading'])
-            driving_experience = st.selectbox("Driving Experience", ['1-2yr', 'Above 10yr', '5-10yr', '2-5yr', 'No Licence', 'Below 1yr', 'Unknown', 'na'])
+            age_band_of_driver = st.selectbox("Age Band of Driver", ['','18-30', '31-50', 'Under 18', 'Over 51', 'Unknown'])
+            sex_of_driver = st.selectbox("Sex of Driver", ['', 'Male', 'Female', 'Unknown'])
+            educational_level = st.selectbox("Educational Level", ['', 'Above high school', 'Junior high school', 'Elementary school', 'High school', 'Unknown', 'Illiterate', 'Writing & reading'])
+            driving_experience = st.selectbox("Driving Experience", ['', '1-2yr', 'Above 10yr', '5-10yr', '2-5yr', 'No Licence', 'Below 1yr', 'Unknown'])
 
             # Accident Details
             st.subheader("Accident Details")
-            time_input = st.time_input("Select Time")  # Time input in HH:MM:SS format
+            time_input = st.time_input("Select Time", value=datetime.time(0, 0))  # Time input in HH:MM:SS format
             time_str = time_input.strftime("%H:%M:%S")  # Convert to HH:MM:SS string format
             time_obj = datetime.datetime.strptime(time_str, "%H:%M:%S").time()
             total_seconds = time_obj.hour * 3600 + time_obj.minute * 60 + time_obj.second
             total_seconds_str = str(total_seconds) + ".0"
 
-            day_of_week = st.selectbox("Day of Week", ['Monday', 'Sunday', 'Friday', 'Wednesday', 'Saturday', 'Thursday', 'Tuesday'])
+            day_of_week = st.selectbox("Day of Week", ['', 'Monday', 'Sunday', 'Friday', 'Wednesday', 'Saturday', 'Thursday', 'Tuesday'])
             Number_of_vehicles_involved = st.number_input("Number of vehicles involved", step=1, format="%i")
             Number_of_casualties = st.number_input("Number of casualties", step=1, format="%i")
-            cause_of_accident = st.selectbox("Cause of Accident", ['Moving Backward', 'Overtaking', 'Changing lane to the left','No distancing', 'Changing lane to the right', 'Overloading', 'No priority to vehicle', 'No priority to pedestrian', 'Driving under influence', 'Ignoring traffic signal', 'Turning left', 'Turning right', 'Not adhering to speed limit', 'Driving carelessly', 'Speeding', 'Not adhering to lane discipline','Driving at high speed', 'Other'])
+            cause_of_accident = st.selectbox("Cause of Accident", ['', 'Moving Backward', 'Overtaking', 'Changing lane to the left','No distancing', 'Changing lane to the right', 'Overloading', 'No priority to vehicle', 'No priority to pedestrian', 'Driving under influence', 'Ignoring traffic signal', 'Turning left', 'Turning right', 'Not adhering to speed limit', 'Driving carelessly', 'Speeding', 'Not adhering to lane discipline','Driving at high speed', 'Other'])
 
             # Vehicle Information
             st.subheader("Vehicle Information")
-            type_of_vehicle = st.selectbox("Type of Vehicle", ['Automobile', 'Public (> 45 seats)', 'Lorry (41?100Q)', 'Public (13?45 seats)', 'Lorry (11?40Q)', 'Long lorry', 'Public (12 seats)', 'Taxi', 'Pick up upto 10Q', 'Stationwagen', 'Ridden horse', 'Other', 'Bajaj', 'Turbo', 'Motorcycle', 'Special vehicle', 'Bicycle'])
-            owner_of_vehicle = st.selectbox("Owner of Vehicle", ['Owner', 'Governmental', 'Organization', 'Other'])
-            vehicle_driver_relation = st.selectbox("Vehicle Driver Relation", ['Employee', 'Unknown', 'Owner', 'Other'])
+            type_of_vehicle = st.selectbox("Type of Vehicle", ['', 'Automobile', 'Public (> 45 seats)', 'Lorry (41?100Q)', 'Public (13?45 seats)', 'Lorry (11?40Q)', 'Long lorry', 'Public (12 seats)', 'Taxi', 'Pick up upto 10Q', 'Stationwagen', 'Ridden horse', 'Other', 'Bajaj', 'Turbo', 'Motorcycle', 'Special vehicle', 'Bicycle'])
+            owner_of_vehicle = st.selectbox("Owner of Vehicle", ['', 'Owner', 'Governmental', 'Organization', 'Other'])
+            vehicle_driver_relation = st.selectbox("Vehicle Driver Relation", ['', 'Employee', 'Unknown', 'Owner', 'Other'])
 
         with col2:
 
             # Environmental Factors
             st.subheader("Environmental Factors")
-            area_accident_occurred = st.selectbox("Area of Accident Occurred", ['Residential areas', 'Office areas', 'Recreational areas', 'Industrial areas', 'Other', 'Unknown'])
-            lanes_or_medians = st.selectbox("Lanes or Medians", ['Undivided Two way', 'Double carriageway (median)', 'One way', 'Two-way (divided with solid lines road marking)', 'Two-way (divided with broken lines road marking)', 'Unknown'])
-            road_alignment = st.selectbox("Road Alignment", ['Tangent road with flat terrain', 'Tangent road with mild grade and flat terrain', 'Escarpments', 'Tangent road with rolling terrain', 'Gentle horizontal curve', 'Tangent road with mountainous terrain', 'Steep grade downward with mountainous terrain', 'Sharp reverse curve', 'Steep grade upward with mountainous terrain'])
-            types_of_junction = st.selectbox("Types of Junction", ['No junction', 'Y Shape', 'Crossing', 'O Shape', 'Other', 'Unknown', 'T Shape', 'X Shape'])
-            road_surface_type = st.selectbox("Road Surface Type", ['Asphalt roads', 'Earth roads', 'Gravel roads', 'Other'])
-            road_surface_conditions = st.selectbox("Road Surface Conditions", ['Dry', 'Wet or damp', 'Snow', 'Flood over 3cm. deep'])
-            light_conditions = st.selectbox("Light Conditions", ['Daylight', 'Darkness - lights lit', 'Darkness - no lighting', 'Darkness - lights unlit'])
-            weather_conditions = st.selectbox("Weather Conditions", ['Normal', 'Raining', 'Raining and Windy', 'Cloudy', 'Other', 'Windy', 'Snow', 'Unknown', 'Fog or mist'])
+            area_accident_occurred = st.selectbox("Area of Accident Occurred", ['', 'Residential areas', 'Office areas', 'Recreational areas', 'Industrial areas', 'Other', 'Unknown'])
+            lanes_or_medians = st.selectbox("Lanes or Medians", ['', 'Undivided Two way', 'Double carriageway (median)', 'One way', 'Two-way (divided with solid lines road marking)', 'Two-way (divided with broken lines road marking)', 'Unknown'])
+            road_alignment = st.selectbox("Road Alignment", ['', 'Tangent road with flat terrain', 'Tangent road with mild grade and flat terrain', 'Escarpments', 'Tangent road with rolling terrain', 'Gentle horizontal curve', 'Tangent road with mountainous terrain', 'Steep grade downward with mountainous terrain', 'Sharp reverse curve', 'Steep grade upward with mountainous terrain'])
+            types_of_junction = st.selectbox("Types of Junction", ['', 'No junction', 'Y Shape', 'Crossing', 'O Shape', 'Other', 'Unknown', 'T Shape', 'X Shape'])
+            road_surface_type = st.selectbox("Road Surface Type", ['', 'Asphalt roads', 'Earth roads', 'Gravel roads', 'Other'])
+            road_surface_conditions = st.selectbox("Road Surface Conditions", ['', 'Dry', 'Wet or damp', 'Snow', 'Flood over 3cm. deep'])
+            light_conditions = st.selectbox("Light Conditions", ['', 'Daylight', 'Darkness - lights lit', 'Darkness - no lighting', 'Darkness - lights unlit'])
+            weather_conditions = st.selectbox("Weather Conditions", ['', 'Normal', 'Raining', 'Raining and Windy', 'Cloudy', 'Other', 'Windy', 'Snow', 'Unknown', 'Fog or mist'])
 
             # Collision Information
             st.subheader("Collision Information")
-            type_of_collision = st.selectbox("Type of Collision", ['Collision with roadside-parked vehicles', 'Vehicle with vehicle collision', 'Collision with roadside objects', 'Collision with animals', 'Other', 'Rollover', 'Fall from vehicles', 'Collision with pedestrians', 'With Train', 'Unknown'])
+            type_of_collision = st.selectbox("Type of Collision", ['', 'Collision with roadside-parked vehicles', 'Vehicle with vehicle collision', 'Collision with roadside objects', 'Collision with animals', 'Other', 'Rollover', 'Fall from vehicles', 'Collision with pedestrians', 'With Train', 'Unknown'])
 
             # Vehicle Movement and Pedestrian Movement
             st.subheader("Movement Information")
-            vehicle_movement = st.selectbox("Vehicle Movement", ['Going straight', 'U-Turn', 'Moving Backward', 'Turnover', 'Waiting to go', 'Getting off', 'Reversing', 'Unknown', 'Parked', 'Stopping', 'Overtaking', 'Other', 'Entering a junction'])
-            pedestrian_movement = st.selectbox("Pedestrian Movement", ['Not a Pedestrian', "Crossing from driver's nearside", 'Crossing from nearside - masked by parked or stationary vehicle', 'Unknown or other', 'Crossing from offside - masked by parked or stationary vehicle', 'In carriageway, stationary - not crossing (standing or playing)', 'Walking along in carriageway, back to traffic', 'Walking along in carriageway, facing traffic', 'In carriageway, stationary - not crossing (standing or playing) - masked by parked or stationary vehicle'])
+            vehicle_movement = st.selectbox("Vehicle Movement", ['', 'Going straight', 'U-Turn', 'Moving Backward', 'Turnover', 'Waiting to go', 'Getting off', 'Reversing', 'Unknown', 'Parked', 'Stopping', 'Overtaking', 'Other', 'Entering a junction'])
+            pedestrian_movement = st.selectbox("Pedestrian Movement", ['', 'Not a Pedestrian', "Crossing from driver's nearside", 'Crossing from nearside - masked by parked or statioNot a Pedestrianry vehicle', 'Unknown or other', 'Crossing from offside - masked by  parked or statioNot a Pedestrianry vehicle', 'In carriageway, statioNot a Pedestrianry - not crossing  (standing or playing)', 'Walking along in carriageway, back to traffic', 'Walking along in carriageway, facing traffic', 'In carriageway, statioNot a Pedestrianry - not crossing  (standing or playing) - masked by parked or statioNot a Pedestrianry vehicle'])
 
     # Submit button for the form
     submit_button = st.form_submit_button(label="Predict",use_container_width=True)
@@ -276,32 +276,35 @@ with st.form("prediction_form", clear_on_submit=False):
                     road_surface_conditions, light_conditions, weather_conditions, type_of_collision, vehicle_movement,
                     pedestrian_movement, cause_of_accident]
 
-        # Make prediction with loading spinner
-        with st.spinner("Making prediction... Please wait."):
-            # Make prediction
-            prediction = make_prediction(input_data)
+        if '' in input_data or None in input_data:
+            st.error("Please fill in all the required fields.")
+        else:
+            # Make prediction with loading spinner
+            with st.spinner("Making prediction... Please wait."):
+                # Make prediction
+                prediction = make_prediction(input_data)
 
-        # Decode the prediction if it's not None
-        if prediction is not None:
-            decoded_prediction = target_encoder.inverse_transform(prediction)
-            #st.write(f"Input Data: {input_data}")
-            #st.write(f"Prediction: {prediction}")
-            # Determine the CSS class based on the prediction
-            if decoded_prediction[0] == 'Fatal injury':
-                css_class = 'fatal-injury'
-            elif decoded_prediction[0] == 'Serious Injury':
-                css_class = 'serious-injury'
-            elif decoded_prediction[0] == 'Slight Injury':
-                css_class = 'slight-injury'
-            else:
-                css_class = ''
+            # Decode the prediction if it's not None
+            if prediction is not None:
+                decoded_prediction = target_encoder.inverse_transform(prediction)
+                #st.write(f"Input Data: {input_data}")
+                #st.write(f"Prediction: {prediction}")
+                # Determine the CSS class based on the prediction
+                if decoded_prediction[0] == 'Fatal injury':
+                    css_class = 'fatal-injury'
+                elif decoded_prediction[0] == 'Serious Injury':
+                    css_class = 'serious-injury'
+                elif decoded_prediction[0] == 'Slight Injury':
+                    css_class = 'slight-injury'
+                else:
+                    css_class = ''
 
-            st.markdown(f"""
-            <div class="prediction-box {css_class}">
-                <h3>Prediction Result</h3>
-                Accident Severity : {decoded_prediction[0]}
-            </div>
-            """, unsafe_allow_html=True)
+                st.markdown(f"""
+                <div class="prediction-box {css_class}">
+                    <h3>Prediction Result</h3>
+                    Accident Severity : {decoded_prediction[0]}
+                </div>
+                """, unsafe_allow_html=True)
 
 # Footer Styling
 st.markdown(
