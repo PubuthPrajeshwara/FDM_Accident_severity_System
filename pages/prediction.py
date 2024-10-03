@@ -235,7 +235,7 @@ with st.form("prediction_form", clear_on_submit=False):
             day_of_week = st.selectbox("Day of Week", ['', 'Monday', 'Sunday', 'Friday', 'Wednesday', 'Saturday', 'Thursday', 'Tuesday'])
             Number_of_vehicles_involved = st.number_input("Number of vehicles involved", step=1, format="%i")
             Number_of_casualties = st.number_input("Number of casualties", step=1, format="%i")
-            cause_of_accident = st.selectbox("Cause of Accident", ['', 'Moving Backward', 'Overtaking', 'Changing lane to the left','No distancing', 'Changing lane to the right', 'Overloading', 'No priority to vehicle', 'No priority to pedestrian', 'Driving under influence', 'Ignoring traffic signal', 'Turning left', 'Turning right', 'Not adhering to speed limit', 'Driving carelessly', 'Speeding', 'Not adhering to lane discipline','Driving at high speed', 'Other'])
+            cause_of_accident = st.selectbox("Cause of Accident", ['', 'Moving Backward', 'Overtaking', 'Changing lane to the left','No distancing', 'Changing lane to the right', 'Overloading', 'No priority to vehicle', 'No priority to pedestrian', 'Driving under the influence of drugs', 'Driving carelessly','Driving at high speed', 'Other', 'Getting off the vehicle improperly', 'Improper parking', 'Overspeed','Driving to the left','Unknown','Overturning', 'Turnover', 'Drunk driving'])
 
             # Vehicle Information
             st.subheader("Vehicle Information")
